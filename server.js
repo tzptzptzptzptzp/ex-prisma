@@ -9,6 +9,11 @@ const PORT = 8000;
 
 app.use(express.json());
 
+app.get("/", async (req, res) => {
+  const posts = await prisma.posts.findMany();
+  return res.json(posts);
+});
+
 app.post("/", async (req, res) => {
   const { title, body } = req.body;
   const posts = await prisma.posts.create({
