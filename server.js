@@ -50,6 +50,16 @@ app.put("/:id", async (req, res) => {
   return res.json(post);
 });
 
+app.delete("/:id", async (req, res) => {
+  const id = req.params.id;
+  const post = await prisma.posts.delete({
+    where: {
+      id: Number(id),
+    },
+  });
+  return res.json(post);
+});
+
 app.listen(PORT, () => {
   console.log(`Server Running http://localhost:${PORT}`);
 });
