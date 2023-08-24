@@ -35,6 +35,21 @@ app.post("/", async (req, res) => {
   return res.json(posts);
 });
 
+app.put("/:id", async (req, res) => {
+  const id = req.params.id;
+  const { title, body } = req.body;
+  const post = await prisma.posts.update({
+    where: {
+      id: Number(id),
+    },
+    data: {
+      title: title,
+      body: body,
+    },
+  });
+  return res.json(post);
+});
+
 app.listen(PORT, () => {
   console.log(`Server Running http://localhost:${PORT}`);
 });
