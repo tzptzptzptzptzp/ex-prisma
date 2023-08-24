@@ -14,6 +14,16 @@ app.get("/", async (req, res) => {
   return res.json(posts);
 });
 
+app.get("/:id", async (req, res) => {
+  const id = req.params.id;
+  const post = await prisma.posts.findUnique({
+    where: {
+      id: Number(id),
+    },
+  });
+  return res.json(post);
+});
+
 app.post("/", async (req, res) => {
   const { title, body } = req.body;
   const posts = await prisma.posts.create({
