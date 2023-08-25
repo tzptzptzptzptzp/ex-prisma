@@ -18,3 +18,26 @@ npm を使用しています
 npm
 npm start // サーバー起動
 ```
+
+---
+
+## Introduction
+
+This is an API built using express / Prisma.  
+It supports CRUD operations based on the endpoints.
+
+## Technologies Used
+
+- [Prisma](https://www.prisma.io/)
+- [Node.js](https://nodejs.org/en/)
+- [express](https://expressjs.com/)
+- [PostgreSQL](https://www.postgresql.org/)
+
+## Development Process
+
+npm is being used
+
+```bash
+npm
+npm start // Start the server
+```
